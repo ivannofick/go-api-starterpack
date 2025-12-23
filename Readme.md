@@ -69,11 +69,32 @@ cd go-api-starterpack
 Create a `.env` file:
 
 ```env
+# Database Driver PostgreSQL
+DB_DRIVER=postgres
+
+# PostgreSQL Config
 DB_HOST=localhost
 DB_PORT=5432
-DB_USER=postgres
-DB_PASS=postgres
-DB_NAME=go_crud
+DB_USER=belajargolang
+DB_PASS=12345
+DB_NAME=dbbelajar
+
+# JWT
+JWT_SECRET=supersecretkey
+```
+Or 
+```env
+# Database Driver MySQL
+DB_DRIVER=mysql
+
+# MySQL Config
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=belajargolang
+DB_PASS=12345
+DB_NAME=dbbelajar
+
+# JWT
 JWT_SECRET=supersecretkey
 ```
 

@@ -10,20 +10,21 @@ import (
 func ApiRoutes() *chi.Mux {
 	r := chi.NewRouter()
 
-	// auth
 	r.Post("/register", controllers.Register)
 	r.Post("/login", controllers.Login)
 
-	// protected routes
 	r.Group(func(r chi.Router) {
 		r.Use(middleware.Auth)
+		// r.Use(middleware.Recover) // if any
 
-		r.Get("/users", controllers.IndexUser)
-		r.Get("/users/{id}", controllers.ShowUser)
-		r.Put("/users/{id}", controllers.UpdateUser)
-		r.Delete("/users/{id}", controllers.DeleteUser)
-		r.Get("/users/pagination", controllers.PaginatedUsers)
-		r.Post("/users/create/data", controllers.CreateUserBaru())
+		r.Route("/users", func(r chi.Router) {
+			r.Get("/pagination", controllers.PaginatedUsers)
+			r.Get("/", controllers.IndexUser)
+			r.Post("/", controllers.CreateUserBaru())
+			r.Get("/{id}", controllers.ShowUser)
+			r.Put("/{id}", controllers.UpdateUser)
+			r.Delete("/{id}", controllers.DeleteUser)
+		})
 	})
 
 	return r
