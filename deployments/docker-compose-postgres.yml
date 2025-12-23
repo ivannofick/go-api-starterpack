@@ -1,0 +1,28 @@
+# docker-compose -f docker-compose-postgres.yml up -d
+# docker-compose -p belajar-golang -f docker-compose-postgres.yml up -d
+version: '3'
+services:
+  pgsql:
+    container_name: belajar-golang
+    image: 'postgres:latest'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: 'dbbelajar'
+      POSTGRES_USER: 'belajargolang'
+      POSTGRES_PASSWORD: '12345'
+    networks:
+      - 'database-net'
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer-container
+    image: 'adminer'
+    ports:
+      - '8080:8080'
+    networks:
+      - 'database-net'
+
+networks:
+  database-net:
