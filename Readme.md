@@ -1,6 +1,6 @@
 # go-api-starterpack
 
-A lightweight and opinionated Go API starter pack featuring a clean project structure, PostgreSQL integration, JWT authentication, and transaction-safe CRUD operations.
+A lightweight and opinionated Go API starter pack featuring a clean project structure, Database(PostgreSQL, MySQL) integration, JWT authentication, and transaction-safe CRUD operations.
 
 This project is designed to be **simple enough for learning**, yet **structured enough for real-world usage**.
 
@@ -9,7 +9,7 @@ This project is designed to be **simple enough for learning**, yet **structured 
 ## ✨ Features
 
 * Go (`net/http`) REST API
-* PostgreSQL with GORM
+* PostgreSQL/MySQL with GORM
 * JWT Authentication
 * Transaction-safe operations
 * Centralized API response helper
@@ -130,7 +130,7 @@ Add more layers (repository, interfaces, services) when:
 ## 🛠️ Tech Stack
 
 * Go
-* PostgreSQL
+* PostgreSQL/MySQL
 * GORM
 * JWT
 * Docker
